@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.whisper-cpp" path="/org/gnome/shell/extensions/whisper-cpp/">
+    <key name="recording-key" type="s">
+      <default>'Fn'</default>
+      <summary>Key held while recording</summary>
+    </key>
+    <key name="whisper-cli" type="s">
+      <default>'whisper-cli'</default>
+      <summary>whisper.cpp executable</summary>
+    </key>
+    <key name="model-path" type="s">
+      <default>''</default>
+      <summary>whisper.cpp model file</summary>
+    </key>
+    <key name="language" type="s">
+      <default>'auto'</default>
+      <summary>Transcription language</summary>
+    </key>
+    <key name="whisper-arguments" type="s">
+      <default>'-nt'</default>
+      <summary>Additional whisper.cpp arguments</summary>
+    </key>
+    <key name="clipboard-command" type="s">
+      <default>'wl-copy'</default>
+      <summary>Command used to copy the transcription</summary>
+    </key>
+  </schema>
+</schemalist>

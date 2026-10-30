@@ -1,0 +1,7 @@
+{
+  "uuid": "gnome-whisper-cpp@local",
+  "name": "GNOME whisper.cpp",
+  "description": "Hold a key to dictate with whisper.cpp",
+  "shell-version": ["45", "46", "47", "48", "49", "50"],
+  "settings-schema": "org.gnome.shell.extensions.whisper-cpp"
+}
