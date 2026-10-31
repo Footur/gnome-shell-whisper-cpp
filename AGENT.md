@@ -1,0 +1,6 @@
+- NEVER create documentation files unless explicitly asked
+- Do not add comments that restate the code
+- When a test fails, fix the code, not the test
+- Do not say "You're absolutely right!"
+- Do not run `git push --force` (we discussed this)
+- Use [Conventional Commits 1.0.0](https://raw.githubusercontent.com/conventional-commits/conventionalcommits.org/refs/heads/master/content/v1.0.0/index.md)
