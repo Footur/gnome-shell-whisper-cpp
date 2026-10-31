@@ -12,14 +12,14 @@
     {
       packages = forAllSystems (pkgs: {
         default = pkgs.stdenvNoCC.mkDerivation {
-          pname = "gnome-whisper-cpp";
+          pname = "gnome-shell-whisper-cpp";
           version = "unstable";
           src = self;
           nativeBuildInputs = [ pkgs.glib ];
           dontUnpack = true;
 
           installPhase = ''
-            extensionDir="$out/share/gnome-shell/extensions/gnome-whisper-cpp@local"
+            extensionDir="$out/share/gnome-shell/extensions/gnome-shell-whisper-cpp@local"
             mkdir -p "$extensionDir/schemas"
             cp "$src/extension.js" "$src/prefs.js" "$src/metadata.json" "$extensionDir/"
             cp "$src"/schemas/*.gschema.xml "$extensionDir/schemas/"

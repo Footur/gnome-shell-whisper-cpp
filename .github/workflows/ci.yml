@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-package:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b # v31.11.3
+        with:
+          extra_nix_config: experimental-features = nix-command flakes
+          github_access_token: ${{ github.token }}
+          set_as_trusted_user: false
+
+      - name: Test and build package
+        run: |
+          node --input-type=module --check < extension.js
+          node --input-type=module --check < prefs.js
+          nix flake check
+          output="$(nix build .#default --no-link --print-out-paths)"
+          tar -C "$output" -czf gnome-whisper-cpp.tar.gz .
+
+      - name: Upload package
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: gnome-whisper-cpp
+          path: gnome-whisper-cpp.tar.gz
+          if-no-files-found: error
+          retention-days: 7
