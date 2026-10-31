@@ -1,4 +1,4 @@
-# GNOME whisper.cpp
+# GNOME Shell whisper.cpp
 
 A GNOME Shell extension for push-to-talk transcription with whisper.cpp. Hold the configured key to record; when released, the transcript is copied to the Wayland clipboard.
 
